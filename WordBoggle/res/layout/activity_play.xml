@@ -1,0 +1,116 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/selectpg_bc"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".PlayActivity" >
+
+    <!--
+    <RadioGroup
+        android:id="@+id/radioPlayerMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp" >
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/one"
+            android:text="" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/radioButton1"
+            android:layout_below="@+id/radioButton1"
+            android:layout_marginTop="21dp"
+            android:background="@drawable/two"
+            android:text="" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/radioButton2"
+            android:layout_below="@+id/radioButton2"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/cut"
+            android:text="" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/NoMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/StartGameButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:text="" />
+    -->
+
+    <Button
+        android:id="@+id/single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/single"
+        android:onClick="onClickSingle" />
+
+    <ImageButton
+        android:id="@+id/basic2player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cutthroat"
+        android:layout_marginRight="24dp"
+        android:layout_toLeftOf="@+id/basic"
+        android:background="@drawable/bluetooth" />
+
+    <ImageButton
+        android:id="@+id/helpbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="onClickHelp"
+        android:src="@drawable/helpbutton" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/single"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/select" />
+
+    <Button
+        android:id="@+id/basic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/single"
+        android:layout_below="@+id/single"
+        android:background="@drawable/basic"
+        android:onClick="onClickBasic" />
+
+    <Button
+        android:id="@+id/cutthroat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/basic"
+        android:layout_below="@+id/basic"
+        android:background="@drawable/cutthroat"
+        android:onClick="onClickCutthroat" />
+
+</RelativeLayout>

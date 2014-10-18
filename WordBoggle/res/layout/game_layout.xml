@@ -1,0 +1,387 @@
+<LinearLayout  
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#CCCCFF"
+    android:orientation="vertical" >
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <GridLayout
+                android:id="@+id/gridLayout0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn00"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick00"
+                    />
+
+                <Button
+                    android:id="@+id/btn01"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick01"/>
+
+                <Button
+                    android:id="@+id/btn02"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick02"/>
+
+                <Button
+                    android:id="@+id/btn03"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick03"/>
+
+            </GridLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <GridLayout
+                android:id="@+id/gridLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn10"
+                    android:layout_gravity="left" 
+                    android:width="120dp"  
+                    android:height="110dp"
+                    android:onClick="onClick10"/>
+
+                <Button
+                    android:id="@+id/btn11"
+                    android:layout_gravity="left" 
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick11"/>
+
+                <Button
+                    android:id="@+id/btn12"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick12"/>
+
+                <Button
+                    android:id="@+id/btn13"
+                    android:layout_gravity="left"
+                    android:width="120dp"  
+                    android:height="110dp"
+                    android:onClick="onClick13"/>
+
+            </GridLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <GridLayout
+                android:id="@+id/gridLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn20"
+                    android:layout_gravity="left"
+                    android:width="120dp"  
+                    android:height="110dp"
+                    android:onClick="onClick20"/>
+
+                <Button
+                    android:id="@+id/btn21"
+                    android:layout_gravity="left"
+                    android:width="120dp"  
+                    android:height="110dp"
+                    android:onClick="onClick21"/>
+
+                <Button
+                    android:id="@+id/btn22"
+                    android:layout_gravity="left"
+                    android:width="120dp"  
+                    android:height="110dp"
+                    android:onClick="onClick22"/>
+
+                <Button
+                    android:id="@+id/btn23"
+                    android:layout_gravity="left" 
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick23"/>
+
+            </GridLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <GridLayout
+                android:id="@+id/gridLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn30"
+                    android:layout_gravity="left"
+                    android:width="120dp"
+                    android:height="110dp"
+                    android:onClick="onClick30"/>
+
+                <Button
+                    android:id="@+id/btn31"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick31"/>
+
+                <Button
+                    android:id="@+id/btn32"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick32"/>
+
+                <Button
+                    android:id="@+id/btn33"
+                    android:layout_gravity="left"
+                    android:width="120dp" 
+                    android:height="110dp"
+                    android:onClick="onClick33"/>
+
+            </GridLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+       
+        <TextView
+            android:id="@+id/wordSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="" 
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="63dp"
+            android:layout_height="27dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                 />
+        </LinearLayout>
+
+            
+      
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnStartStop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickSubmit"
+                android:text="Submit" />
+
+            <Button
+                android:id="@+id/btnReset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickReset"
+                android:text="Reset" />
+
+            <Button
+                android:id="@+id/NewGameButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Game" />
+
+            <TextView
+                android:id="@+id/spacer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="                                                     " />
+
+            <TextView
+                android:id="@+id/tvTimeCount"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/textTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Points"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="     total"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="9"
+            android:orientation="horizontal" >
+
+            <ScrollView
+                android:id="@+id/ScrollView01"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content" >
+
+                <TableLayout
+                    android:id="@+id/TableLayout01"
+                    android:layout_width="289dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="#99FFCC"
+                    android:stretchColumns="0,1" >
+
+                    <TableRow
+                        android:id="@+id/TableRow01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/word"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFCCCC"
+                            android:gravity="center"
+                            android:text="Word"
+                            android:textAppearance="?android:attr/textAppearanceLarge" >
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/points"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFCCCC"
+                            android:gravity="center"
+                            android:text="Score"
+                            android:textAppearance="?android:attr/textAppearanceLarge" >
+                        </TextView>
+                    </TableRow>
+                </TableLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:id="@+id/ScrollView02"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content" >
+
+                <TableLayout
+                    android:id="@+id/TableLayout02"
+                    android:layout_width="289dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="#99FFCC"
+                    android:stretchColumns="0,1" >
+
+                    <TableRow
+                        android:id="@+id/TableRow02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/allword"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFCC"
+                            android:gravity="center"
+                            android:text="All Words"
+                            android:textAppearance="?android:attr/textAppearanceLarge" >
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/allpoints"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#FFFFCC"
+                            
+                            android:text="on board"
+                            android:textAppearance="?android:attr/textAppearanceLarge" >
+                        </TextView>
+                    </TableRow>
+                </TableLayout>
+            </ScrollView>
+                 
+
+          <!--  <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.90"
+                android:text="                  List of all words"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+           
+           
+           <ListView
+                android:id="@+id/listView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+             </ListView>
+             
+             -->
+             
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout >
