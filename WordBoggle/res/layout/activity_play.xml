@@ -60,6 +60,14 @@
         android:text="" />
     -->
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/single"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/select" />
+
     <Button
         android:id="@+id/single"
         android:layout_width="wrap_content"
@@ -68,32 +76,6 @@
         android:layout_centerVertical="true"
         android:background="@drawable/single"
         android:onClick="onClickSingle" />
-
-    <ImageButton
-        android:id="@+id/basic2player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/cutthroat"
-        android:layout_marginRight="24dp"
-        android:layout_toLeftOf="@+id/basic"
-        android:background="@drawable/bluetooth" />
-
-    <ImageButton
-        android:id="@+id/helpbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="onClickHelp"
-        android:src="@drawable/helpbutton" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/single"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/select" />
 
     <Button
         android:id="@+id/basic"
@@ -113,4 +95,13 @@
         android:background="@drawable/cutthroat"
         android:onClick="onClickCutthroat" />
 
+    <ImageButton
+        android:id="@+id/helpbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="onClickHelp"
+        android:src="@drawable/helpbutton" />
+    
 </RelativeLayout>
