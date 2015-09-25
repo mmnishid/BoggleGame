@@ -11,13 +11,13 @@ import android.view.View.OnClickListener;
 
 public class PlayActivity extends Activity implements OnClickListener {
 	
-	
+	/*
+	 * 
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_play);
-		
-		
 	}
 
 	
@@ -36,10 +36,7 @@ public class PlayActivity extends Activity implements OnClickListener {
 	 * Button Listener Template
 	 */
 	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void onClick(View v){}
 
 	
 	/*

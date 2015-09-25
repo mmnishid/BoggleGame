@@ -216,12 +216,16 @@ public class NewGameActivity extends Activity {
 	
 	
 	/*
-	 * 
+	 * Alphabet Constants
 	 */
 	public enum Alphabet {
 	    a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z;
 	}
-	// set board with grid alphabet images
+	
+	
+	/*
+	 * set board with grid alphabet images
+	 */
 	public void setLetterImageonBoard(String input, SquareTextView editGrid ) {
 		
 		Alphabet alphabet = Alphabet.valueOf(input);
@@ -307,7 +311,6 @@ public class NewGameActivity extends Activity {
 			break;
 		default:
 			break;
-				
 		}
 	}
 	
