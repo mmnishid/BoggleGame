@@ -38,6 +38,9 @@ public class DisplayDevices extends Activity{
     private ArrayAdapter<String> newDevicesArray;
 	
 	
+    /*
+     * Behavior when activity is created
+     */
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
@@ -92,7 +95,7 @@ public class DisplayDevices extends Activity{
     
 	
 	/*
-	 * 
+	 * Behavior when activity is destroyed
 	 */
 	protected void onDestroy() {
         super.onDestroy();

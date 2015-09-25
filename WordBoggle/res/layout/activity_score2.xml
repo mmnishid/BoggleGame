@@ -103,7 +103,7 @@
                     android:stretchColumns="0,1" >
 
                     <TableRow
-                        android:id="@+id/TableRow01"
+                        android:id="@+id/TableRow02"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         >
@@ -150,7 +150,7 @@
                     android:stretchColumns="0,1" >
 
                     <TableRow
-                        android:id="@+id/TableRow01"
+                        android:id="@+id/TableRow03"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         >
