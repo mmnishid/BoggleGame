@@ -128,6 +128,9 @@ public class TwoPlayerResults extends Activity {
 		
 	}
 	
+	/*
+	 * 
+	 */
 	private void addWord(String wordScored, int points, int view){
 		
 		final TableLayout tl = (TableLayout)findViewById(view);

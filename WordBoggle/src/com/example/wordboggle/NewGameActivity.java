@@ -778,49 +778,4 @@ public class NewGameActivity extends Activity {
 	      }
 	      return height;
 	}
-	
-	
-	/*
-	 * 
-	 */
-	private void setSettingSize(){
-		/*
-		editText = (TextView) findViewById(R.id.WordView);
-		int buttonWidth = editText.getWidth();
-		int textSize = buttonWidth/10;
-		
-		if(textSize < 18){
-			screenSize = android.R.style.TextAppearance_Small;
-		}else if(textSize < 22){
-			screenSize = android.R.style.TextAppearance_Medium;
-		}else{
-			screenSize = android.R.style.TextAppearance_Large;
-		}
-		
-		//set text size for column 1
-		editText.setTextSize(screenSize);
-		editText = (TextView) findViewById(R.id.NewGameBtn);
-		editText.setTextSize(screenSize);
-		editText = (TextView) findViewById(R.id.SubmitScoreBtn);
-		editText.setTextSize(screenSize);
-		editText = (TextView) findViewById(R.id.textTotal);
-		editText.setTextSize(screenSize);
-		//editText = (TextView) findViewById(R.id.total);
-		//editText.setTextSize(screenSize);
-		editText = (TextView) findViewById(R.id.MenuBtn);
-		editText.setTextSize(screenSize);
-		
-		//set text size for column 2
-		editText = (TextView) findViewById(R.id.WordList01);
-		editText.setTextSize(screenSize);
-		editText = (TextView) findViewById(R.id.PointList01);
-		editText.setTextSize(screenSize);
-		
-		//set text size for column 3
-		editText = (TextView) findViewById(R.id.WordList02);
-		editText.setTextSize(screenSize);
-		editText = (TextView) findViewById(R.id.PointList02);
-		editText.setTextSize(screenSize);
-		*/
-	}
 }
