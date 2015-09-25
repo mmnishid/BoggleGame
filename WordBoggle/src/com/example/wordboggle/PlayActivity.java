@@ -1,3 +1,13 @@
+/*
+ * PlayActivity.java
+ * CS 454
+ * Group 2
+ * 
+ * Purpose
+ * 		-Selects the desired game mode
+ * 		-selects the help button
+ */ 
+
 package com.example.wordboggle;
 
 

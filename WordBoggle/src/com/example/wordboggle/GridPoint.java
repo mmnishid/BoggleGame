@@ -2,14 +2,13 @@
  * GridPoint.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-stores a location on a grid
  */
 
 package com.example.wordboggle;
 
-
-/*
- * stores a location on a grid
- */
 public class GridPoint {
 	
 	//the X and Y positions

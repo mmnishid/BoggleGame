@@ -2,6 +2,18 @@
  * NewGameActivity.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-plays the single player game utilizing the GameManager class
+ * 		-Initializes the Dynamic gameboard screen and keeps track of its dimensions
+ * 		-Finds and highlights words via touch screen input and the gameboard dimensions
+ * 		-Displays all words found on the Boggle board and the points each is worth in a ScrollView
+ * 		-Keeps track of how much time has passed sense the game has passed and stops game after 3 minutes
+ * 		-Ends a started game when the submit button is pressed
+ * 		-Locks the gameboard so no more words can be inputted when game has ended
+ * 		-Displays all words found by the GameManager on the Boggle board and the points each is worth in a ScrollView
+ * 		-Start a new game and reset the gameboard and timer when new game button is pressed
+ * 		-Return to PlayActivity when menu button is pressed
  */
 
 package com.example.wordboggle;
@@ -28,9 +40,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-/*
- * The activity that plays the single player game
- */
 public class NewGameActivity extends Activity {
     
 	//this double array holds the id of all grid squares
@@ -96,7 +105,9 @@ public class NewGameActivity extends Activity {
 	private String[] letterstoReset = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"};
 	
 	
-	@Override
+	/*
+	 * Create and start the activity and initialize the activity variables and start a new boggle game
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.new_game_layout);
@@ -421,7 +432,7 @@ public class NewGameActivity extends Activity {
 	
 	
 	/*
-	 * 
+	 * Change the image of a grid image to reflect it being highlighted
 	 */
 	private void setHighlighting(String input) {
 		Alphabet alphabet = Alphabet.valueOf(input);
@@ -512,11 +523,10 @@ public class NewGameActivity extends Activity {
 	
 	
 	/*
-	 * 
+	 * make an array of letters and also array of gridIds of grids having these letters
+	 * to prepare to remove highlighting on these grids.
 	 */
 	private void resetHighlight(String input, int viewMatrix){
-		//make an array of letters and also array of gridIds of grids having these letters
-		//to prepare to remove highlighting on these grids.
 		letterstoReset[resetletter] = input;
 		gridIds [resetletter] = viewMatrix;
 		++resetletter;
@@ -524,10 +534,9 @@ public class NewGameActivity extends Activity {
 	
 	
 	/*
-	 * 
+	 * get the grid to reset back to non-highlighted form and remove highlighting.
 	 */
 	private void backtounhighlighted(String wordScored){
-		//get the grid to reset back to non-highlighted form and remove highlighting.
 		for(int k = 0; k < word.length() ; k++){
 			editGrid = (SquareTextView) findViewById(gridIds[k]);
 			setLetterImageonBoard(letterstoReset[k], editGrid);
@@ -661,40 +670,40 @@ public class NewGameActivity extends Activity {
 	
 	
 	/*
-	 * 
+	 * add a word and its points into a scroll list or remove all tablerows in the scrollview 
 	 */
 	private void addWord(String wordScored, int points, int view, boolean add){
 		
-		//
+		//create a new tablerow and two textviews for words and points
 		final TableLayout tl = (TableLayout)findViewById(view);
 		TableRow tr = new TableRow(this);
 		TextView tvWord = new TextView(this);
 		TextView tvPoints = new TextView(this);
 		
-		//
+		//if the add boolean parameter is true add word to scrollview
 		if (add){
 		
-			//
+			//set up the textviews and tablerow
 			tr.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 			tvWord.setText(wordScored, TextView.BufferType.EDITABLE);
 			tvWord.setGravity(Gravity.CENTER);
 			tvWord.setTextAppearance(getApplicationContext(), R.style.scoreText);
 			tvPoints.setText(String.valueOf(points), TextView.BufferType.EDITABLE); 
-		
+			tvPoints.setGravity(Gravity.CENTER);
+			tvPoints.setTextAppearance(getApplicationContext(), R.style.scoreText);
+			
 			//
 			if (txtViewRemoved){
 				tvPoints.setText("Pts", TextView.BufferType.EDITABLE);
 			}
 		
-			//
-			tvPoints.setGravity(Gravity.CENTER);
-			tvPoints.setTextAppearance(getApplicationContext(), R.style.scoreText);
+			//add textviews to the tablerow then add the tablerow to the scrollview
 			tr.addView(tvWord);
 			tr.addView(tvPoints);
 			tl.addView(tr,new TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT)); 
 		
+		//if the add boolean parameter is false remove all words from the scrollview
 		}else {
-			//
 			tl.removeAllViewsInLayout();
 	    }
 	}

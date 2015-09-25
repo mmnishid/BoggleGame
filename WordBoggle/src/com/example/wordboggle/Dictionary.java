@@ -1,3 +1,15 @@
+/*
+ * Dictionary.java
+ * CS 454
+ * Group 2
+ * 
+ * Purpose
+ * 		-Reads in all the words listed in the dictionary.txt file
+ * 		-Stores all the words in a HashMap of ArrayLists which organizes the word alphabetically
+ * 		-Searches the dictionary data structure to test if a string input is a real word
+ * 		-Searches the dictionary data structure to test if a string input is part of a word
+ */
+
 package com.example.wordboggle;
 
 

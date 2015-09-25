@@ -2,6 +2,9 @@
  * SquareLayout.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-Create a custom LinearLayout that always remains square based on the devices width
  */
 
 package com.example.wordboggle;

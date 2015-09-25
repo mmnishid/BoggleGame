@@ -2,6 +2,9 @@
  * SquareTextView.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-Create a custom TextView that always remains square based on the given width
  */
 
 package com.example.wordboggle;
@@ -10,10 +13,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-
-/*
- * 
- */
 public class SquareTextView extends TextView {
 
 	public SquareTextView(Context context) {

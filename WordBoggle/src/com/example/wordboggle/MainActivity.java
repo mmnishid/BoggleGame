@@ -1,3 +1,13 @@
+/*
+ * Activity.java
+ * CS 454
+ * Group 2
+ * 
+ * Purpose
+ * 		-App title screen
+ * 		-Start up the android activity
+ */
+
 package com.example.wordboggle;
 
 import android.os.Bundle;
@@ -7,8 +17,6 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.view.View.OnClickListener;
-
-
 
 public class MainActivity extends Activity {
 	
@@ -27,7 +35,8 @@ public class MainActivity extends Activity {
 
 	
 	/*
-	 * 
+	 * setup a listener for the image button then
+	 * listen for the start button to be pressed
 	 */
 	private void addListenerOnButton() {
 		// TODO Auto-generated method stub

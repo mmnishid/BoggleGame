@@ -1,3 +1,13 @@
+/*
+ * HelpActivity.java
+ * CS 454
+ * Group 2
+ * 
+ * Purpose
+ * 		-Displays the instructions of the Boggle game
+ * 		-Returns to the PlayActivity when imagebutton1 is pressed
+ */
+
 package com.example.wordboggle;
 
 
@@ -26,14 +36,11 @@ public class HelpActivity extends Activity {
 		imageButton1 = (ImageButton) findViewById(R.id.imageButton1);
 		imageButton1.setOnClickListener(new OnClickListener() {
 	
-		public void onClick(View arg0) {
-		
-			Intent intent = new Intent(HelpActivity.this, PlayActivity.class);
-		    startActivity(intent);
-		}
-
-		
-	});
+			public void onClick(View arg0) {
+				Intent intent = new Intent(HelpActivity.this, PlayActivity.class);
+				startActivity(intent);
+			}		
+		});
 
 	}
 }

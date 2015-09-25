@@ -2,6 +2,9 @@
  * DisplayDevices.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-
  */
 
 package com.example.wordboggle;
@@ -26,7 +29,7 @@ import android.widget.TextView;
 
 
 /*
- * 
+ * Display all available bluetooth devices
  */
 public class DisplayDevices extends Activity{
 	// Return Intent extra

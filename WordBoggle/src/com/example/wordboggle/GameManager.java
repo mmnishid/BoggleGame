@@ -2,6 +2,13 @@
  * GameManager.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-Manages the data and behavior of a Boggle game
+ * 		-Resets the gameboard every time the player starts a new game
+ * 		-returns a string array representing the gameboard
+ * 		-Returns a letter from the gameboard based on the x and y coordinates of the gameboard
+ * 		-Finds all possible words a user can find on the gameboard using a recursive search function
  */
 
 package com.example.wordboggle;

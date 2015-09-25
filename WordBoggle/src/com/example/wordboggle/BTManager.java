@@ -2,6 +2,9 @@
  * BTManager.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-
  */
 
 package com.example.wordboggle;

@@ -2,6 +2,18 @@
  * TwoPlayerGameActivity.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-plays the single player game utilizing the GameManager class
+ * 		-Initializes the Dynamic gameboard screen and keeps track of its dimensions
+ * 		-Finds and highlights words via touch screen input and the gameboard dimensions
+ * 		-Displays all words found on the Boggle board and the points each is worth in a ScrollView
+ * 		-Keeps track of how much time has passed sense the game has passed and stops game after 3 minutes
+ * 		-Ends a started game when the submit button is pressed
+ * 		-Locks the gameboard so no more words can be inputted when game has ended
+ * 		-Displays all words found by the GameManager on the Boggle board and the points each is worth in a ScrollView
+ * 		-Start a new game and reset the gameboard and timer when new game button is pressed
+ * 		-Return to PlayActivity when menu button is pressed
  */
 
 package com.example.wordboggle;
@@ -145,7 +157,7 @@ public class TwoPlayerGameActivity extends Activity{
 	private boolean txtViewRemoved = false;
 		
 	/*
-	 * Create and start the activity
+	 * Create and start the activity and initialize the activity variables
 	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -425,7 +437,9 @@ public class TwoPlayerGameActivity extends Activity{
 	}
 	
 	
-	// set board with grid alphabet images
+	/*
+	 * set board with grid alphabet images
+	 */
 	public void setLetterImageonBoard(String input, SquareTextView editGrid ) {
 		
 		Alphabet alphabet = Alphabet.valueOf(input);
@@ -609,105 +623,109 @@ public class TwoPlayerGameActivity extends Activity{
 
  
     /*
-     * The Handler that gets information back from the BluetoothChatService
+     * The Handler that gets information back from the BluetoothChatService 
+     * and performs an action based on that information
      */
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-            case MESSAGE_STATE_CHANGE:
+            	//message indicates a connection state change
+            	case MESSAGE_STATE_CHANGE:
             	
-                switch (msg.arg1) {
-                case BTManager.STATE_CONNECTED:
-                    setStatus("Device Connected to " + mConnectedDeviceName);                
-                    break;
-                    
-                case BTManager.STATE_CONNECTING:
-                    setStatus("connecting");
-                    isMaster = true;
-                    break;
-                    
-                case BTManager.STATE_LISTEN:
-                case BTManager.STATE_NONE:
-                    setStatus("not connected");
-                    break;
-                }
-                break;
+            		//
+            		switch (msg.arg1) {
+            			//
+            			case BTManager.STATE_CONNECTED:
+            				setStatus("Device Connected to " + mConnectedDeviceName);                
+            				break;
+            				
+            			//
+            			case BTManager.STATE_CONNECTING:
+            				setStatus("connecting");
+            				isMaster = true;
+            				break;
+            			//
+            			case BTManager.STATE_LISTEN:
+            				
+            			//
+            			case BTManager.STATE_NONE:
+            				setStatus("not connected");
+            				break;
+            		}
+            		break;
                 
+                //Save the connected device's name
+            	case MESSAGE_DEVICE_NAME:
+            		mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
+            		Toast.makeText(getApplicationContext(), "Connected to "
+            				+ mConnectedDeviceName, Toast.LENGTH_SHORT).show();
+            		break;
                 
-            case MESSAGE_DEVICE_NAME:
-                // save the connected device's name
-                mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
-                Toast.makeText(getApplicationContext(), "Connected to "
-                               + mConnectedDeviceName, Toast.LENGTH_SHORT).show();
-                break;
+                //Read message and Toasts the message back to the user
+            	case MESSAGE_TOAST:
+            		Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST),
+            				Toast.LENGTH_SHORT).show();
+            		break;
                 
+                //Message is related 
+            	case MESSAGE_READ:
+            		byte[] readBuf = (byte[]) msg.obj;
+            		// construct a string from the valid bytes in the buffer
+            		String rawMessage = new String(readBuf, 0, msg.arg1);
+            		//get the messageCode integer at the beginning of every message
+            		String strNum = rawMessage.substring(0, 1);
+            		int messageCode = Integer.parseInt(strNum);
+            		//get the rest of the message
+            		String message = rawMessage.substring(1);
                 
-            case MESSAGE_TOAST:
-                Toast.makeText(getApplicationContext(), msg.getData().getString(TOAST),
-                               Toast.LENGTH_SHORT).show();
-                break;
-                
-                
-            case MESSAGE_READ:
-            	
-                byte[] readBuf = (byte[]) msg.obj;
-                // construct a string from the valid bytes in the buffer
-                String rawMessage = new String(readBuf, 0, msg.arg1);
-                //get the messageCode integer at the beginning of every message
-                String strNum = rawMessage.substring(0, 1);
-                int messageCode = Integer.parseInt(strNum);
-                //get the rest of the message
-                String message = rawMessage.substring(1);
-                
-                //test the message code to see what type of message was sent
-                if(messageCode == GAME_MODE){
-                	//
+            		//test the message code to see what type of message was sent
+            		if(messageCode == GAME_MODE){
+            			
                 	
-                	
-                }else if(messageCode == BOGGLE_BOARD){
                 	//if the message is a boggle board parse all the letters and add them to your board
-                	tempArray = message.split(" ");
-                	game.setBoard(tempArray);
+            		}else if(messageCode == BOGGLE_BOARD){
+            			tempArray = message.split(" ");
+            			game.setBoard(tempArray);
                 	
-                }else if(messageCode == WORD_LIST){
-                	//if the message is a word list parse all the words and add them to your searched word list
-                	searchedWordList.clear();
-                	tempArray = message.split(" ");
-                	for(int i = 0; i < tempArray.length; ++i){
-                		searchedWordList.add(tempArray[i]);
-                	}
-                	startGame();
+            		//if the message is a word list parse all the words and add them to your searched word list
+            		}else if(messageCode == WORD_LIST){
+            			searchedWordList.clear();
+            			tempArray = message.split(" ");
+            			for(int i = 0; i < tempArray.length; ++i){
+            				searchedWordList.add(tempArray[i]);
+            			}
+            			startGame();
                 
-                }else if(messageCode == PLAYER_TWO_WORD){
-                	//if the massage is a player 2 word add it to your player 2 word list
-                	player2Word = message;
-                	player2WordList.add(player2Word);
-                	//if the game is cut add the word to the player 2 scroll list display
-                	if(isCutThroat){
-                		pts = getScore(player2Word);
-                		player2Pts+=pts; 
-        				addWord(player2Word, pts, R.id.TableLayout02,true);
-                	}
+            		//if the massage is a player 2 word add it to your player 2 word list
+            		}else if(messageCode == PLAYER_TWO_WORD){
+            			player2Word = message;
+            			player2WordList.add(player2Word);
+            			//if the game is cut add the word to the player 2 scroll list display
+            			if(isCutThroat){
+            				pts = getScore(player2Word);
+            				player2Pts+=pts; 
+            				addWord(player2Word, pts, R.id.TableLayout02,true);
+            			}
                 	
-                }else if(messageCode == START_GAME){
-                	//a message sent from the slave to the master to start the game
-                	startGame();
+            		//a message sent from the slave to the master to start the game
+            		}else if(messageCode == START_GAME){
+            			startGame();
                 
-                }else if(messageCode == NEW_GAME){
-                	//a message sent from player two to let the user know they are ready for a new game
-                	player2Ready = true;
-                	Toast.makeText(getApplicationContext(),"Player2 Ready",Toast.LENGTH_SHORT).show();
-                	Toast.makeText(getApplicationContext(),"Press NewGame to play",Toast.LENGTH_SHORT).show();
+            		//a message sent from player two to let the user know they are ready for a new game
+            		}else if(messageCode == NEW_GAME){
+            			player2Ready = true;
+            			Toast.makeText(getApplicationContext(),"Player2 Ready",Toast.LENGTH_SHORT).show();
+            			Toast.makeText(getApplicationContext(),"Press NewGame to play",Toast.LENGTH_SHORT).show();
                 	
-                }else if(messageCode == END_GAME){
-                	//a message sent from player two to let the user know they finished playing
-                	player2Done = true;
-                	Toast.makeText(getApplicationContext(),"Player2 done",Toast.LENGTH_SHORT).show();
-                	if(player1Done){
-                		endGame();
-                	}
-                }
+            		//a message sent from player two to let the user know they finished playing
+            		}else if(messageCode == END_GAME){
+            			player2Done = true;
+            			Toast.makeText(getApplicationContext(),"Player2 done",Toast.LENGTH_SHORT).show();
+            			if(player1Done){
+            				endGame();
+            			}
+            		}
             }
         }
     };
@@ -758,22 +776,22 @@ public class TwoPlayerGameActivity extends Activity{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		
 		switch(requestCode){
+			//Request a connection to a secure device
 			case REQUEST_SECURE_DEVICE:
-				//
 				if (resultCode == Activity.RESULT_OK) {
 	                connectDevice(data, true);
 	            }
 				break;
 				
+			//Request a connection to a insecure device
 			case REQUEST_INSECURE_DEVICE:
-				//
 				if (resultCode == Activity.RESULT_OK) {
 	                connectDevice(data, false);
 	            }
 				break;
 				
+			// When the request to enable Bluetooth returns
 			case REQUEST_ENABLE_BT:
-		        // When the request to enable Bluetooth returns
 		        if (resultCode == Activity.RESULT_OK) {
 		            // Bluetooth is now enabled, so set up a chat session
 		        	mChatService = new BTManager(this, mHandler);
@@ -781,7 +799,6 @@ public class TwoPlayerGameActivity extends Activity{
 		            // User did not enable Bluetooth or an error occurred
 		            finish();
 		        }
-		        
 		}
 	}
 	
@@ -837,7 +854,7 @@ public class TwoPlayerGameActivity extends Activity{
 	
 	
 	/*
-	 * 
+	 * Change the image of a grid image to reflect it being highlighted
 	 */
 	private void setHighlighting(String input) {
 		Alphabet alphabet = Alphabet.valueOf(input);
@@ -927,11 +944,10 @@ public class TwoPlayerGameActivity extends Activity{
 	
 	
 	/*
-	 * 
+	 * make an array of letters and also array of gridIds of grids having these letters
+	 * to prepare to remove highlighting on these grids.
 	 */
 	private void resetHighlight(String input, int viewMatrix){
-		//make an array of letters and also array of gridIds of grids having these letters
-		//to prepare to remove highlighting on these grids.
 		letterstoReset[resetletter] = input;
 		gridIds [resetletter] = viewMatrix;
 		++resetletter;
@@ -939,10 +955,9 @@ public class TwoPlayerGameActivity extends Activity{
 	
 	
 	/*
-	 * 
+	 * get the grid to reset back to non-highlighted form and remove highlighting.
 	 */
 	private void backtounhighlighted(String wordScored){
-		//get the grid to reset back to non-highlighted form and remove highlighting.
 		for(int k = 0; k < player1Word.length() ; k++){
 			editGrid = (SquareTextView) findViewById(gridIds[k]);
 			setLetterImageonBoard(letterstoReset[k], editGrid);
@@ -1120,40 +1135,40 @@ public class TwoPlayerGameActivity extends Activity{
 	
 	
 	/*
-	 * add a word and its points to a scroll list
+	 * add a word and its points to a scroll list or remove all table rows in the scrollview
 	 */
 	private void addWord(String wordScored, int points, int view, boolean add){
 		
-		//
+		//create a new table row and two textviews for words and points
 		final TableLayout tl = (TableLayout)findViewById(view);
 		TableRow tr = new TableRow(this);
 		TextView tvWord = new TextView(this);
 		TextView tvPoints = new TextView(this);
 		
-		//
+		//if the add boolean parameter is true add word to scrollview
 		if(add){
 		
-			//
+			//set up the textviews and tablerow
 			tr.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 			tvWord.setText(wordScored, TextView.BufferType.EDITABLE);
 			tvWord.setGravity(Gravity.CENTER);
 			tvWord.setTextAppearance(getApplicationContext(), R.style.scoreText);
 			tvPoints.setText(String.valueOf(points), TextView.BufferType.EDITABLE);
+			tvPoints.setGravity(Gravity.CENTER);
+			tvPoints.setTextAppearance(getApplicationContext(), R.style.scoreText);
 			
 			//
 			if(txtViewRemoved){
 				tvPoints.setText("Pts", TextView.BufferType.EDITABLE);
 			}
 			
-			//
-			tvPoints.setGravity(Gravity.CENTER);
-			tvPoints.setTextAppearance(getApplicationContext(), R.style.scoreText);
+			//add textviews to the tablerow then add the tablerow to the scrollview
 			tr.addView(tvWord);
 			tr.addView(tvPoints);
 			tl.addView(tr,new TableLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT)); 
 		
+		//if the add boolean parameter is false remove all words from the scrollview
 		}else {
-			//
 			tl.removeAllViewsInLayout();
 	    }
 	}

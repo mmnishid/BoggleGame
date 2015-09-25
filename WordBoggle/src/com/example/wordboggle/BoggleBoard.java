@@ -2,6 +2,11 @@
  * BoggleBoard.java
  * CS 454
  * Group 2
+ * 
+ * Purpose
+ * 		-Uses a 2D String array to represent a Boggle board
+ * 		-populates the array with a collection of random letters
+ * 		-populates the array with a give array of letters
  */
 
 package com.example.wordboggle;

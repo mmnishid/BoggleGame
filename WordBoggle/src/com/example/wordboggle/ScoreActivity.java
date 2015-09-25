@@ -1,3 +1,12 @@
+/*
+ * ScoreActivity.java
+ * CS 454
+ * Group 2
+ * 
+ * Purpose
+ * 		-
+ */
+
 package com.example.wordboggle;
 
 //import android.app.ActionBar.LayoutParams;
