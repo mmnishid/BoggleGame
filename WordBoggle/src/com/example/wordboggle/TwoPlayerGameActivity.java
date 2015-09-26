@@ -4,13 +4,15 @@
  * Group 2
  * 
  * Purpose
- * 		-plays the single player game utilizing the GameManager class
+ * 		-plays the two player game in basic or cutthroat mode utilizing the GameManager class
  * 		-Initializes the Dynamic gameboard screen and keeps track of its dimensions
+ * 		-Connect to a bluetooth device when the find button is pressed and the DisplayDevices activity is run
+ * 		-Use the BTManager to manage the bluetooth connections and to sent and receive messages from the device 
  * 		-Finds and highlights words via touch screen input and the gameboard dimensions
  * 		-Displays all words found on the Boggle board and the points each is worth in a ScrollView
  * 		-Keeps track of how much time has passed sense the game has passed and stops game after 3 minutes
  * 		-Ends a started game when the submit button is pressed
- * 		-Locks the gameboard so no more words can be inputted when game has ended
+ * 		-Locks the gameboard so no more words can be inputed when game has ended
  * 		-Displays all words found by the GameManager on the Boggle board and the points each is worth in a ScrollView
  * 		-Start a new game and reset the gameboard and timer when new game button is pressed
  * 		-Return to PlayActivity when menu button is pressed
@@ -47,9 +49,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-/*
- * The activity that plays both two player game modes
- */
 public class TwoPlayerGameActivity extends Activity{
 	
 	//this double array holds the id of all grid squares

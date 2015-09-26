@@ -4,11 +4,15 @@
  * Group 2
  * 
  * Purpose
- * 		-
+ * 		-Manages the Bluetooth connections
+ * 		-Utilizes an AcceptThread to listen for a connection request from another device 
+ * 		-Utilizes an ConnectThread to initiate a connection with another device
+ * 		-Utilizes an ConnectedThread to manage a connection with another device
+ * 		-Disconnect from a connected device
+ * 		-Send a message to a connected device
  */
 
 package com.example.wordboggle;
-
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,9 +28,6 @@ import android.os.Handler;
 import android.os.Message;
 
 
-/*
- * Manages the Bluetooth connections
- */
 public class BTManager {
 	// Name for the SDP record when creating server socket
     private static final String NAME_SECURE = "TwoPlayerSecure";

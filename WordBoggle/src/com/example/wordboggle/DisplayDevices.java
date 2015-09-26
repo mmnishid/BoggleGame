@@ -4,7 +4,9 @@
  * Group 2
  * 
  * Purpose
- * 		-
+ * 		-Display all available bluetooth devices 
+ * 		-Returns the devices MAC and the result OK to BTManager to connect to the device when the device view is pressed
+ * 		-Returns the result CANCEL to the BTManager whenthe button Exit is pressed
  */
 
 package com.example.wordboggle;
@@ -28,9 +30,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 
-/*
- * Display all available bluetooth devices
- */
 public class DisplayDevices extends Activity{
 	// Return Intent extra
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
